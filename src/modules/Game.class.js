@@ -92,6 +92,7 @@ class Game {
     this.status = 'playing';
 
     this.addRandomTile();
+    this.addRandomTile();
   }
 
   /**
