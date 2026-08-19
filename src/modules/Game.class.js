@@ -127,7 +127,7 @@ class Game {
 
         this.state[rowIndex] = line;
       }
-    } else {
+    } else if (direction === 'up' || direction === 'down') {
       for (let colIndex = 0; colIndex < 4; colIndex++) {
         let line = [];
 
