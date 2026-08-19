@@ -91,8 +91,8 @@ class Game {
 
     this.status = 'playing';
 
-    this.addRandomTile();
-    this.addRandomTile();
+    this.addStartingTile();
+    this.addStartingTile();
   }
 
   /**
@@ -195,6 +195,27 @@ class Game {
     }
 
     return result;
+  }
+
+  addStartingTile() {
+    const emptyCells = [];
+
+    for (let rowIndex = 0; rowIndex < 4; rowIndex++) {
+      for (let colIndex = 0; colIndex < 4; colIndex++) {
+        if (this.state[rowIndex][colIndex] === 0) {
+          emptyCells.push([rowIndex, colIndex]);
+        }
+      }
+    }
+
+    if (emptyCells.length === 0) {
+      return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * emptyCells.length);
+    const cell = emptyCells[randomIndex];
+
+    this.state[cell[0]][cell[1]] = 2;
   }
 
   addRandomTile() {
